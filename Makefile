@@ -17,10 +17,7 @@ init:
 	cd apps/aap-juce-ports && git submodule update --init --recursive external/Magical8bitPlug2
 
 dist:
-	mkdir -p release_builds
-	#for i in `find apps/ -name *release*.apk` ; do \
-	#	cp $$i release_builds/ ; \
-	#done
+	mkdir -p release-builds
 	make TARGET=aap-juce-plugin-host distone
 	make TARGET=aap-juce-adlplug distone
 	make TARGET=aap-juce-dexed distone
@@ -28,7 +25,7 @@ dist:
 	make TARGET=aap-juce-ports distone
 
 distone:
-	make -C apps/$(TARGET) AAP_JUCE_DIR=$(PWD)/aap-juce DIST_DIR=$(PWD)/release_builds dist
+	make -C apps/$(TARGET) AAP_JUCE_DIR=$(PWD)/aap-juce DIST_DIR=$(PWD)/release-builds dist
 
 build: build-apps
 
