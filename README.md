@@ -1,4 +1,7 @@
 
+# aap-juce-world: CI build setup for all registered aap-juce projects.
+
+This repository is used to create complete aap-juce archive.
 
 # How to build
 
