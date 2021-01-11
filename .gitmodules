@@ -1,0 +1,24 @@
+[submodule "aap-juce"]
+	path = aap-juce
+	url = https://github.com/atsushieno/aap-juce.git
+[submodule "android-audio-plugin-framework"]
+	path = android-audio-plugin-framework
+	url = https://github.com/atsushieno/android-audio-plugin-framework.git
+[submodule "JUCE"]
+	path = JUCE
+	url = https://github.com/juce-framework/JUCE.git
+[submodule "apps/aap-juce-plugin-host"]
+	path = apps/aap-juce-plugin-host
+	url = https://github.com/atsushieno/aap-juce-plugin-host.git
+[submodule "apps/aap-juce-dexed"]
+	path = apps/aap-juce-dexed
+	url = https://github.com/atsushieno/aap-juce-dexed.git
+[submodule "apps/aap-juce-adlplug"]
+	path = apps/aap-juce-adlplug
+	url = https://github.com/atsushieno/aap-juce-adlplug.git
+[submodule "apps/aap-juce-ports"]
+	path = apps/aap-juce-ports
+	url = https://github.com/atsushieno/aap-juce-ports.git
+[submodule "apps/aap-juce-obxd"]
+	path = apps/aap-juce-obxd
+	url = https://github.com/atsushieno/aap-juce-obxd.git
