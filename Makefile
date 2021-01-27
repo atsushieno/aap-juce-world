@@ -15,14 +15,18 @@ init:
 	cd apps/aap-juce-ports && git submodule update --init --recursive external/andes
 	cd apps/aap-juce-ports && git submodule update --init --recursive external/SARAH
 	cd apps/aap-juce-ports && git submodule update --init --recursive external/Magical8bitPlug2
+	cd apps/aap-juce-frequalizer && git submodule update --init --recursive external/Frequalizer
+	cd apps/aap-juce-odin2 && git submodule update --init --recursive external/odin2
 
 dist:
 	mkdir -p release-builds
 	make TARGET=aap-juce-plugin-host distone
+	make TARGET=aap-juce-ports distone
 	make TARGET=aap-juce-adlplug distone
 	make TARGET=aap-juce-dexed distone
 	make TARGET=aap-juce-obxd distone
-	make TARGET=aap-juce-ports distone
+	make TARGET=aap-juce-frequalizer distone
+	make TARGET=aap-juce-odin2 distone
 
 distone:
 	make -C apps/$(TARGET) AAP_JUCE_DIR=$(PWD)/aap-juce DIST_DIR=$(PWD)/release-builds dist
@@ -34,10 +38,12 @@ build-aap:
 
 build-apps: \
 	build-pluginhost \
+	build-other-ports \
 	build-adlplug \
 	build-dexed \
 	build-obxd \
-	build-other-ports
+	build-frequalizer \
+	build-odin2
 
 build-other-ports: build-andes build-sarah build-magical8bitplug2
 
@@ -75,6 +81,18 @@ build-obxd:
 	make \
 		APP_TARGET=$(PWD)/apps/aap-juce-obxd \
 		APP_SRC_DIR=$(PWD)/apps/aap-juce-obxd/external/OB-Xd \
+		build-single-app
+
+build-frequalizer:
+	make \
+		APP_TARGET=$(PWD)/apps/aap-juce-frequalizer \
+		APP_SRC_DIR=$(PWD)/apps/aap-juce-frequalizer/external/Frequalizer \
+		build-single-app
+
+build-odin2:
+	make \
+		APP_TARGET=$(PWD)/apps/aap-juce-odin2 \
+		APP_SRC_DIR=$(PWD)/apps/aap-juce-odin2/external/odin2 \
 		build-single-app
 
 build-andes:
