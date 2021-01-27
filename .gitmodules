@@ -22,3 +22,9 @@
 [submodule "apps/aap-juce-obxd"]
 	path = apps/aap-juce-obxd
 	url = https://github.com/atsushieno/aap-juce-obxd.git
+[submodule "apps/aap-juce-frequalizer"]
+	path = apps/aap-juce-frequalizer
+	url = https://github.com/atsushieno/aap-juce-frequalizer.git
+[submodule "apps/aap-juce-odin2"]
+	path = apps/aap-juce-odin2
+	url = https://github.com/atsushieno/aap-juce-odin2.git
