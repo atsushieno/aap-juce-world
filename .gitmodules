@@ -28,3 +28,9 @@
 [submodule "apps/aap-juce-odin2"]
 	path = apps/aap-juce-odin2
 	url = https://github.com/atsushieno/aap-juce-odin2.git
+[submodule "apps/aap-juce-witte-eq"]
+	path = apps/aap-juce-witte-eq
+	url = https://github.com/atsushieno/aap-juce-witte-eq.git
+[submodule "apps/aap-juce-chow-phaser"]
+	path = apps/aap-juce-chow-phaser
+	url = https://github.com/atsushieno/aap-juce-chow-phaser.git

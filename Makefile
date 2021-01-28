@@ -17,6 +17,8 @@ init:
 	cd apps/aap-juce-ports && git submodule update --init --recursive external/Magical8bitPlug2
 	cd apps/aap-juce-frequalizer && git submodule update --init --recursive external/Frequalizer
 	cd apps/aap-juce-odin2 && git submodule update --init --recursive external/odin2
+	cd apps/aap-juce-witte-eq && git submodule update --init --recursive external/Eq
+	cd apps/aap-juce-chow-phaser && git submodule update --init --recursive external/ChowPhaser
 
 dist:
 	mkdir -p release-builds
@@ -27,6 +29,8 @@ dist:
 	make TARGET=aap-juce-obxd distone
 	make TARGET=aap-juce-frequalizer distone
 	make TARGET=aap-juce-odin2 distone
+	make TARGET=aap-juce-witte-eq distone
+	make TARGET=aap-juce-chow-phaser distone
 
 distone:
 	make -C apps/$(TARGET) AAP_JUCE_DIR=$(PWD)/aap-juce DIST_DIR=$(PWD)/release-builds dist
@@ -43,7 +47,9 @@ build-apps: \
 	build-dexed \
 	build-obxd \
 	build-frequalizer \
-	build-odin2
+	build-odin2 \
+	build-witte-eq \
+	build-chow-phaser
 
 build-other-ports: build-andes build-sarah build-magical8bitplug2
 
@@ -115,3 +121,16 @@ build-magical8bitplug2:
 		APP_SRC_DIR=$(PWD)/apps/aap-juce-ports/external/Magical8bitPlug2 \
 		TARGET_MAKEFILE=Makefile.magical8bitplug2 \
 		build-single-app
+
+build-witte-eq:
+	make \
+		APP_TARGET=$(PWD)/apps/aap-juce-witte-eq \
+		APP_SRC_DIR=$(PWD)/apps/aap-juce-witte-eq/external/Eq \
+		build-single-app
+
+build-chow-phaser:
+	make \
+		APP_TARGET=$(PWD)/apps/aap-juce-chow-phaser \
+		APP_SRC_DIR=$(PWD)/apps/aap-juce-chow-phaser/external/ChowPhaser \
+		build-single-app
+
