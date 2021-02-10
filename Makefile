@@ -19,6 +19,7 @@ init:
 	cd apps/aap-juce-odin2 && git submodule update --init --recursive external/odin2
 	cd apps/aap-juce-witte-eq && git submodule update --init --recursive external/Eq
 	cd apps/aap-juce-chow-phaser && git submodule update --init --recursive external/ChowPhaser
+	cd apps/aap-juce-hera && git submodule update --init --recursive external/Hera
 
 dist:
 	mkdir -p release-builds
@@ -31,6 +32,7 @@ dist:
 	make TARGET=aap-juce-odin2 distone
 	make TARGET=aap-juce-witte-eq distone
 	make TARGET=aap-juce-chow-phaser distone
+	make TARGET=aap-juce-hera distone
 
 distone:
 	make -C apps/$(TARGET) AAP_JUCE_DIR=$(PWD)/aap-juce DIST_DIR=$(PWD)/release-builds dist
@@ -49,7 +51,8 @@ build-apps: \
 	build-frequalizer \
 	build-odin2 \
 	build-witte-eq \
-	build-chow-phaser
+	build-chow-phaser \
+	build-hera
 
 build-other-ports: build-andes build-sarah build-magical8bitplug2
 
@@ -132,5 +135,11 @@ build-chow-phaser:
 	make \
 		APP_TARGET=$(PWD)/apps/aap-juce-chow-phaser \
 		APP_SRC_DIR=$(PWD)/apps/aap-juce-chow-phaser/external/ChowPhaser \
+		build-single-app
+
+build-hera:
+	make \
+		APP_TARGET=$(PWD)/apps/aap-juce-hera \
+		APP_SRC_DIR=$(PWD)/apps/aap-juce-hera/external/Hera \
 		build-single-app
 

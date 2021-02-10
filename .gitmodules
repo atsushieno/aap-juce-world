@@ -34,3 +34,6 @@
 [submodule "apps/aap-juce-chow-phaser"]
 	path = apps/aap-juce-chow-phaser
 	url = https://github.com/atsushieno/aap-juce-chow-phaser.git
+[submodule "apps/aap-juce-hera"]
+	path = apps/aap-juce-hera
+	url = https://github.com/atsushieno/aap-juce-hera.git
